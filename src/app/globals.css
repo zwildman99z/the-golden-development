@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-sans-thai), ui-sans-serif, system-ui, sans-serif;
+  --font-cursive: var(--font-pattaya), cursive;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

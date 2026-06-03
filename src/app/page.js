@@ -142,9 +142,10 @@ export default function Page() {
             <div className="relative mb-6">
               {/* Subtle glowing orb behind text */}
               <div className="absolute -inset-4 bg-yellow-500/20 blur-[80px] rounded-full opacity-50 pointer-events-none hidden md:block"></div>
-              <h1 className="relative text-5xl md:text-6xl lg:text-[5rem] font-black leading-[1.15] text-white tracking-tight drop-shadow-2xl">
+              <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-black leading-[1.25] text-white tracking-tight drop-shadow-2xl">
                 บริการให้เช่ารถ<span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-600 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">แม็คโคร</span><br/>
-                และ<span className="text-yellow-400">รถดัมพ์</span> <br className="md:hidden" />ราคาเป็นกันเอง
+                และ<span className="text-yellow-400">รถดัมพ์</span> <br className="md:hidden" />
+                <span className="font-cursive text-yellow-300 font-normal tracking-wide text-5xl md:text-6xl lg:text-7xl block mt-4 md:mt-6 -rotate-2 drop-shadow-[0_4px_4px_rgba(0,0,0,0.6)]">ราคาเป็นกันเอง</span>
               </h1>
             </div>
 
