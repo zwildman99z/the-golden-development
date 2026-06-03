@@ -80,7 +80,7 @@ export default function Page() {
       }`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           <a href="#hero" className="flex items-center gap-4 group">
-            <div className="relative h-12 w-48 transition-transform duration-300 group-hover:scale-105">
+            <div className="relative h-14 w-48 md:h-20 md:w-64 transition-transform duration-300 group-hover:scale-105">
               <Image src="/logo.png" alt="Makro-Click Logo" fill className="object-contain object-left" priority />
             </div>
           </a>
@@ -120,9 +120,9 @@ export default function Page() {
               <span className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span> รับเหมาพื้นที่ กรุงเทพฯ และ ปริมณฑล
             </div>
             
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white mb-6 tracking-tight">
-              ให้บริการเช่ารถ<span className="text-yellow-500">แม็คโคร</span> <br/>
-              และรถดัมพ์<span className="text-yellow-500">ราคาเป็นกันเอง</span>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] text-white mb-6 tracking-tight drop-shadow-lg">
+              บริการให้เช่ารถ<span className="text-yellow-500">แม็คโคร</span> <br/>
+              และรถดัมพ์ <span className="text-yellow-500">ราคาเป็นกันเอง</span>
             </h1>
 
             <p className="text-lg text-slate-300 mb-10 max-w-xl leading-relaxed font-light">
@@ -340,13 +340,45 @@ export default function Page() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-slate-950 text-center border-t border-white/5">
-        <div className="flex justify-center mb-6">
-          <Truck size={24} className="text-slate-800" />
+      <footer className="pt-20 pb-10 bg-slate-950 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid md:grid-cols-3 gap-12 mb-16">
+            <div>
+              <div className="relative h-14 w-48 mb-6">
+                <Image src="/logo.png" alt="Makro-Click Logo" fill className="object-contain object-left opacity-80" />
+              </div>
+              <p className="text-slate-400 font-light leading-relaxed text-sm">
+                Makro-Click ศูนย์รวมบริการให้เช่ารถแม็คโครและรถดัมพ์ รับงานทุกขนาด บริการประทับใจ ราคาเป็นกันเอง พร้อมดูแลรับใช้ผู้รับเหมาและลูกค้ารายย่อยทุกท่าน
+              </p>
+            </div>
+            <div>
+              <h4 className="text-white font-bold mb-6 tracking-wide">บริการของเรา</h4>
+              <ul className="space-y-3 text-slate-400 text-sm font-light">
+                <li><a href="#equipment" className="hover:text-yellow-500 transition-colors">เช่ารถแบคโฮ PC30 / PC120</a></li>
+                <li><a href="#equipment" className="hover:text-yellow-500 transition-colors">เช่ารถดัมพ์ 6 ล้อ / 10 ล้อ</a></li>
+                <li><a href="#equipment" className="hover:text-yellow-500 transition-colors">รับเหมาถมดิน เคลียร์ริ่งพื้นที่</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-bold mb-6 tracking-wide">ติดต่อเรา</h4>
+              <ul className="space-y-4 text-slate-400 text-sm font-light">
+                <li className="flex items-center gap-3"><Phone size={16} className="text-yellow-500"/> 09X-XXX-XXXX</li>
+                <li className="flex items-center gap-3"><MapPin size={16} className="text-yellow-500"/> ให้บริการในเขตกรุงเทพฯ และปริมณฑล</li>
+                <li className="flex items-center gap-3"><Clock size={16} className="text-yellow-500"/> เปิดให้บริการทุกวัน 24 ชั่วโมง</li>
+              </ul>
+            </div>
+          </div>
+          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-slate-500 font-light">
+              &copy; {new Date().getFullYear()} MAKRO-CLICK. All rights reserved.
+            </p>
+            <div className="flex items-center gap-4 text-slate-500 text-xs">
+              <a href="#" className="hover:text-yellow-500 transition-colors">นโยบายความเป็นส่วนตัว</a>
+              <span>|</span>
+              <a href="#" className="hover:text-yellow-500 transition-colors">ข้อตกลงและเงื่อนไข</a>
+            </div>
+          </div>
         </div>
-        <p className="text-xs text-slate-500 font-medium tracking-wide">
-          &copy; {new Date().getFullYear()} MAKRO-CLICK. บริการให้เช่าเครื่องจักรหนัก ราคากันเอง.
-        </p>
       </footer>
     </div>
   );
