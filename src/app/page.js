@@ -374,7 +374,7 @@ export default function Page() {
                   </div>
                   <div>
                     <p className="text-sm text-slate-400 font-light mb-1">โทรปรึกษาด่วน</p>
-                    <p className="font-bold text-white text-xl">09X-XXX-XXXX</p>
+                    <p className="font-bold text-white text-xl">098-256-6987</p>
                   </div>
                 </div>
                 <div className="w-full h-px bg-slate-700/50"></div>
@@ -483,7 +483,7 @@ export default function Page() {
             <div>
               <h4 className="text-white font-bold mb-6 tracking-wide">ติดต่อเรา</h4>
               <ul className="space-y-4 text-slate-400 text-sm font-light">
-                <li className="flex items-center gap-3"><Phone size={16} className="text-yellow-500"/> 09X-XXX-XXXX</li>
+                <li className="flex items-center gap-3"><Phone size={16} className="text-yellow-500"/> 098-256-6987</li>
                 <li className="flex items-center gap-3"><MapPin size={16} className="text-yellow-500"/> ให้บริการในเขตกรุงเทพฯ และปริมณฑล</li>
                 <li className="flex items-center gap-3"><Clock size={16} className="text-yellow-500"/> เปิดให้บริการทุกวัน 24 ชั่วโมง</li>
               </ul>
