@@ -1,16 +1,10 @@
-import { Playfair_Display, IBM_Plex_Sans_Thai } from "next/font/google";
+import { Prompt } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  weight: ["400", "500", "600", "700"],
-});
-
-const ibmPlexThai = IBM_Plex_Sans_Thai({
+const promptFont = Prompt({
   subsets: ["thai", "latin"],
   variable: "--font-sans-thai",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata = {
@@ -29,9 +23,9 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="th"
-      className={`${playfair.variable} ${ibmPlexThai.variable} scroll-smooth`}
+      className={`${promptFont.variable} scroll-smooth`}
     >
-      <body className="font-sans antialiased text-slate-900 bg-cream-50">
+      <body className="font-sans antialiased text-slate-900 bg-slate-950">
         {children}
       </body>
     </html>
