@@ -1,4 +1,4 @@
-import { Kanit, Pattaya } from "next/font/google";
+import { Kanit, Pattaya, Pridi } from "next/font/google";
 import "./globals.css";
 
 const kanitFont = Kanit({
@@ -11,6 +11,12 @@ const pattayaFont = Pattaya({
   subsets: ["thai", "latin"],
   variable: "--font-pattaya",
   weight: ["400"],
+});
+
+const pridiFont = Pridi({
+  subsets: ["thai", "latin"],
+  variable: "--font-pridi",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -29,7 +35,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="th"
-      className={`${kanitFont.variable} ${pattayaFont.variable} scroll-smooth`}
+      className={`${kanitFont.variable} ${pattayaFont.variable} ${pridiFont.variable} scroll-smooth`}
     >
       <body className="font-sans antialiased text-slate-900 bg-slate-950">
         {children}

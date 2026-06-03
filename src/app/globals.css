@@ -2,6 +2,7 @@
 
 @theme {
   --font-sans: var(--font-sans-thai), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-pridi), ui-serif, Georgia, serif;
   --font-cursive: var(--font-pattaya), cursive;
 }
 
