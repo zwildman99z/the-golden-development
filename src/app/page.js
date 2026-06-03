@@ -79,9 +79,11 @@ export default function Page() {
         isScrolled ? "glass-nav py-4" : "bg-transparent py-6"
       }`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-          <a href="#hero" className="flex items-center gap-4 group">
-            <div className="relative h-14 w-48 md:h-20 md:w-64 transition-transform duration-300 group-hover:scale-105">
-              <Image src="/logo.png" alt="Makro-Click Logo" fill className="object-contain object-left" priority />
+          <a href="#hero" className="flex items-center group">
+            <div className="bg-white/95 p-2 md:p-3 rounded-2xl shadow-[0_4px_20px_rgba(250,204,21,0.2)] transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_4px_25px_rgba(250,204,21,0.4)] border border-yellow-500/20">
+              <div className="relative h-10 w-36 md:h-12 md:w-48">
+                <Image src="/logo.png" alt="Makro-Click Logo" fill className="object-contain object-center" priority />
+              </div>
             </div>
           </a>
 
@@ -131,7 +133,7 @@ export default function Page() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <a href="#contact" className="bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-bold px-8 py-4 rounded-full transition-all flex items-center gap-2 shadow-lg group">
+              <a href="#contact" className="bg-yellow-500 hover:bg-yellow-400 active:scale-95 text-slate-950 font-bold px-8 py-4 rounded-full transition-all flex items-center gap-2 shadow-lg group">
                 <span className="flex items-center gap-2">ประเมินราคาฟรี <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /></span>
               </a>
               <div className="flex items-center gap-3 ml-2">
@@ -146,6 +148,23 @@ export default function Page() {
             </div>
           </motion.div>
         </div>
+
+        {/* Floating Scroll Indicator */}
+        <motion.div 
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60 cursor-pointer hidden md:flex"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}
+        >
+          <span className="text-[10px] uppercase tracking-[0.2em] font-medium">Scroll Down</span>
+          <div className="w-5 h-8 border-2 border-white/30 rounded-full flex justify-center pt-1.5">
+            <motion.div 
+              className="w-1 h-2 bg-yellow-500 rounded-full"
+              animate={{ y: [0, 12, 0], opacity: [1, 0, 1] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            />
+          </div>
+        </motion.div>
       </section>
 
       {/* 3. About / Why Choose Us */}
@@ -211,7 +230,16 @@ export default function Page() {
 
           <div className="grid md:grid-cols-2 gap-10">
             {equipmentList.map((equip, i) => (
-              <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} key={i} className="group relative bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden flex flex-col hover:border-yellow-500/50 transition-colors duration-300">
+              <motion.div 
+                initial="hidden" 
+                whileInView="show" 
+                viewport={{ once: true }} 
+                variants={fadeUp} 
+                whileHover={{ y: -8 }}
+                whileTap={{ scale: 0.98 }}
+                key={i} 
+                className="group relative bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden flex flex-col hover:border-yellow-500/50 hover:shadow-[0_10px_30px_rgba(250,204,21,0.1)] transition-all duration-300"
+              >
                 <div className="relative h-64 overflow-hidden bg-slate-800">
                   <Image src={equip.img} alt={equip.name} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-90"></div>
@@ -344,8 +372,10 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <div>
-              <div className="relative h-14 w-48 mb-6">
-                <Image src="/logo.png" alt="Makro-Click Logo" fill className="object-contain object-left opacity-80" />
+              <div className="bg-white p-3 rounded-2xl inline-block mb-6 shadow-lg border border-slate-200">
+                <div className="relative h-10 w-40">
+                  <Image src="/logo.png" alt="Makro-Click Logo" fill className="object-contain object-center" />
+                </div>
               </div>
               <p className="text-slate-400 font-light leading-relaxed text-sm">
                 Makro-Click ศูนย์รวมบริการให้เช่ารถแม็คโครและรถดัมพ์ รับงานทุกขนาด บริการประทับใจ ราคาเป็นกันเอง พร้อมดูแลรับใช้ผู้รับเหมาและลูกค้ารายย่อยทุกท่าน
