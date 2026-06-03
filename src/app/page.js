@@ -31,6 +31,12 @@ const equipmentList = [
   }
 ];
 
+const portfolioList = [
+  { img: "/assets/portfolio_clearing.png", title: "งานเคลียร์ริ่งพื้นที่", desc: "รับเหมาเคลียร์ริ่งพื้นที่รกร้าง ขุดสระ เตรียมหน้าดินก่อนก่อสร้าง" },
+  { img: "/assets/portfolio_dump.png", title: "งานรับเหมาถมดิน", desc: "ขนย้ายดิน หิน ทราย ปรับระดับหน้าดินด้วยทีมงานมืออาชีพ" },
+  { img: "/assets/portfolio_mini.png", title: "งานเข้าซอยแคบเขตชุมชน", desc: "ใช้รถแบคโฮเล็ก PC30 คล่องตัว ทำงานไว ไม่กระทบเพื่อนบ้าน" }
+];
+
 export default function Page() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -101,37 +107,46 @@ export default function Page() {
         </div>
       </div>
 
-      {/* 2. Navbar (Sticky Menu) */}
-      <nav className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-        isScrolled ? "bg-slate-950/95 backdrop-blur-md shadow-xl py-3 border-b border-white/10" : "bg-slate-950/80 backdrop-blur-sm py-4 border-b border-white/5"
-      }`}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between md:justify-center lg:justify-between items-center">
-          
-          {/* Mobile Menu Button */}
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden text-white p-2">
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+      {/* 2. Navbar (Floating Capsule Menu) */}
+      <div className="sticky top-0 z-50 w-full flex justify-center pointer-events-none">
+        <nav className={`pointer-events-auto transition-all duration-500 ease-in-out ${
+          isScrolled 
+            ? "mt-2 md:mt-4 w-[95%] max-w-4xl bg-slate-900/95 backdrop-blur-md shadow-[0_10px_40px_rgba(0,0,0,0.5)] py-3 px-6 md:px-8 rounded-full border border-slate-700/50" 
+            : "w-full bg-slate-950/80 backdrop-blur-sm py-4 px-6 md:px-12 border-b border-white/5"
+        }`}>
+          <div className="max-w-7xl mx-auto flex justify-between items-center">
+            
+            {/* Mobile Menu Button */}
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden text-white p-2">
+              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-12 w-full justify-center">
-            {["หน้าแรก", "บริการของเรา", "รถที่ให้บริการ", "ติดต่อประเมินราคา"].map((item, idx) => {
-              const href = ["#hero", "#services", "#equipment", "#contact"][idx];
-              return (
-                <a key={item} href={href} className="text-[15px] font-medium text-slate-300 hover:text-yellow-500 transition-colors duration-300 uppercase tracking-wide">
-                  {item}
-                </a>
-              );
-            })}
-            <a href="#contact" className="bg-yellow-500 hover:bg-yellow-400 text-slate-950 px-6 py-3 font-bold rounded-full transition-colors shadow-md flex items-center gap-2">
-              <span>โทรปรึกษาฟรี</span> <ArrowUpRight size={18} />
-            </a>
+            {/* Logo on Scroll (Mobile) */}
+            <div className={`lg:hidden transition-all duration-300 ${isScrolled ? 'opacity-100' : 'opacity-0 hidden'}`}>
+               <span className="font-serif font-black text-lg text-white">MAKRO<span className="text-yellow-500">-CLICK</span></span>
+            </div>
+
+            {/* Desktop Menu */}
+            <div className="hidden lg:flex items-center gap-10 w-full justify-center">
+              {["หน้าแรก", "บริการของเรา", "ผลงานล่าสุด", "รถที่ให้บริการ"].map((item, idx) => {
+                const href = ["#hero", "#services", "#portfolio", "#equipment"][idx];
+                return (
+                  <a key={item} href={href} className={`text-[14px] font-medium transition-colors duration-300 uppercase tracking-wide ${isScrolled ? 'text-slate-300 hover:text-yellow-500' : 'text-slate-400 hover:text-yellow-500'}`}>
+                    {item}
+                  </a>
+                );
+              })}
+            </div>
+            
+            {/* Right Action */}
+            <div className={`flex items-center transition-opacity duration-300`}>
+               <a href="#contact" className="bg-yellow-500 hover:bg-yellow-400 active:scale-95 text-slate-950 px-5 py-2 text-sm font-bold rounded-full transition-all flex items-center gap-2 shadow-lg">
+                <Phone size={14}/> {isScrolled ? 'ติดต่อ' : 'ประเมินราคาฟรี'}
+              </a>
+            </div>
           </div>
-
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden text-white p-2 z-50 relative">
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-      </nav>
+        </nav>
+      </div>
 
       {/* 2. Hero Section */}
       <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -244,7 +259,52 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 4. Equipment List (Friendly Image Cards) */}
+      {/* 4. Portfolio (Recent Projects) */}
+      <section id="portfolio" className="py-24 relative bg-slate-900 border-y border-white/5">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          
+          <div className="text-center mb-16">
+            <span className="text-yellow-500 text-sm font-semibold tracking-wide block mb-4">ผลงานที่ผ่านมา</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">ผลงานล่าสุด<span className="text-yellow-500">ของเรา</span></h2>
+            <p className="text-slate-400 max-w-2xl mx-auto font-light text-lg">ตัวอย่างงานจริงที่ได้รับความไว้วางใจจากผู้รับเหมาและเจ้าของบ้าน</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {portfolioList.map((item, i) => (
+              <motion.div 
+                initial="hidden" 
+                whileInView="show" 
+                viewport={{ once: true, margin: "-50px" }} 
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.8, delay: i * 0.2, ease: cinematicEase } }
+                }} 
+                whileHover={{ y: -8 }}
+                key={i} 
+                className="group relative bg-slate-950 border border-slate-800 rounded-3xl overflow-hidden hover:border-yellow-500/50 hover:shadow-[0_10px_30px_rgba(250,204,21,0.1)] transition-all duration-500 h-[22rem] cursor-pointer"
+              >
+                <div className="absolute inset-0">
+                  <Image src={item.img} alt={item.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-300"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
+                  <div className="w-12 h-1 bg-yellow-500 mb-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100"></div>
+                  <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-slate-300 font-light text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 leading-relaxed">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          <div className="mt-16 text-center">
+            <a href="#contact" className="inline-flex items-center gap-2 bg-slate-800 hover:bg-yellow-500 hover:text-slate-950 active:scale-95 text-white font-semibold rounded-full px-8 py-4 transition-all duration-300 shadow-md">
+              ปรึกษางานของคุณ ฟรี <ArrowUpRight size={18} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Equipment List (Friendly Image Cards) */}
       <section id="equipment" className="py-24 relative bg-slate-950">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
