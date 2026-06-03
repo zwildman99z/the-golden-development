@@ -74,24 +74,50 @@ export default function Page() {
   return (
     <div className="relative min-h-screen text-slate-50 font-sans selection:bg-yellow-500 selection:text-slate-950 overflow-hidden bg-slate-950">
       
-      {/* 1. Navbar */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-        isScrolled ? "glass-nav py-4" : "bg-transparent py-6"
-      }`}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-          <a href="#hero" className="flex items-center group">
-            <div className="bg-white/95 p-2 md:p-3 rounded-2xl shadow-[0_4px_20px_rgba(250,204,21,0.2)] transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_4px_25px_rgba(250,204,21,0.4)] border border-yellow-500/20">
-              <div className="relative h-10 w-36 md:h-12 md:w-48">
-                <Image src="/logo.png" alt="Makro-Click Logo" fill className="object-contain object-center" priority />
-              </div>
-            </div>
-          </a>
+      {/* 1. Top Banner (Traditional B2B Header) */}
+      <div className="bg-slate-900 border-b border-white/5 py-4 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4 relative z-40">
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-xl shadow-[0_0_15px_rgba(250,204,21,0.2)] flex items-center justify-center p-2 relative overflow-hidden border-2 border-yellow-500/50">
+            <Image src="/assets/makro_emblem.png" alt="Makro-Click Emblem" fill className="object-contain p-1" priority />
+          </div>
+          <div className="flex flex-col">
+            <span className="font-serif font-black text-2xl md:text-3xl tracking-tight uppercase text-white leading-none">
+              MAKRO<span className="text-yellow-500">-CLICK</span>
+            </span>
+            <span className="text-[10px] md:text-xs text-slate-400 font-medium tracking-[0.2em] uppercase mt-1">
+              Heavy Machinery Rental
+            </span>
+          </div>
+        </div>
 
-          <div className="hidden lg:flex items-center gap-10">
+        <div className="flex items-center gap-6">
+          <div className="hidden lg:flex flex-col text-right">
+            <span className="text-xs text-slate-400 font-medium tracking-wider uppercase mb-1">จองคิวรถ / ประเมินราคาฟรี</span>
+            <span className="text-3xl font-black text-yellow-500 tracking-wider">09X-XXX-XXXX</span>
+          </div>
+          <a href="#contact" className="lg:hidden bg-yellow-500 text-slate-950 font-bold px-6 py-3 rounded-full flex items-center gap-2 active:scale-95 transition-transform shadow-lg">
+            <Phone size={18} /> โทรด่วน
+          </a>
+        </div>
+      </div>
+
+      {/* 2. Navbar (Sticky Menu) */}
+      <nav className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+        isScrolled ? "bg-slate-950/95 backdrop-blur-md shadow-xl py-3 border-b border-white/10" : "bg-slate-950/80 backdrop-blur-sm py-4 border-b border-white/5"
+      }`}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between md:justify-center lg:justify-between items-center">
+          
+          {/* Mobile Menu Button */}
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden text-white p-2">
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex items-center gap-12 w-full justify-center">
             {["หน้าแรก", "บริการของเรา", "รถที่ให้บริการ", "ติดต่อประเมินราคา"].map((item, idx) => {
               const href = ["#hero", "#services", "#equipment", "#contact"][idx];
               return (
-                <a key={item} href={href} className="text-[15px] font-medium text-slate-300 hover:text-yellow-500 transition-colors duration-300">
+                <a key={item} href={href} className="text-[15px] font-medium text-slate-300 hover:text-yellow-500 transition-colors duration-300 uppercase tracking-wide">
                   {item}
                 </a>
               );
@@ -372,9 +398,14 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <div>
-              <div className="bg-white p-3 rounded-2xl inline-block mb-6 shadow-lg border border-slate-200">
-                <div className="relative h-10 w-40">
-                  <Image src="/logo.png" alt="Makro-Click Logo" fill className="object-contain object-center" />
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-white rounded-xl shadow-[0_0_15px_rgba(250,204,21,0.2)] flex items-center justify-center p-1 relative overflow-hidden border border-yellow-500/50">
+                  <Image src="/assets/makro_emblem.png" alt="Makro-Click Emblem" fill className="object-contain p-1" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-serif font-black text-xl tracking-tight uppercase text-white leading-none">
+                    MAKRO<span className="text-yellow-500">-CLICK</span>
+                  </span>
                 </div>
               </div>
               <p className="text-slate-400 font-light leading-relaxed text-sm">
