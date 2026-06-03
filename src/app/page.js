@@ -80,49 +80,53 @@ export default function Page() {
   return (
     <div className="relative min-h-screen text-slate-50 font-sans selection:bg-yellow-500 selection:text-slate-950 overflow-hidden bg-slate-950">
       
-      {/* 1. Unified Header (Logo + Animated Menu) */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b ${
-        isScrolled ? "bg-slate-950/95 backdrop-blur-md shadow-xl border-white/10 py-3" : "bg-slate-900 border-white/5 py-4"
-      }`}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-          
-          {/* Logo */}
-          <a href="#hero" className="flex items-center gap-4 group">
-            <div className="w-16 h-16 md:w-20 md:h-20 relative overflow-hidden group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_15px_rgba(250,204,21,0.5)]">
-              <Image src="/assets/makro_emblem_transparent.png" alt="Makro-Click Emblem" fill className="object-contain" priority />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-black text-2xl md:text-3xl tracking-tight uppercase text-white leading-none group-hover:text-yellow-500 transition-colors duration-300">
-                MAKRO<span className="text-yellow-500 group-hover:text-white transition-colors duration-300">-CLICK</span>
-              </span>
-            </div>
-          </a>
+      {/* 1. Floating Capsule Header */}
+      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none mt-0 sm:mt-4 transition-all duration-500">
+        <header className={`pointer-events-auto transition-all duration-500 ease-in-out ${
+          isScrolled 
+            ? "w-[95%] max-w-5xl bg-slate-950/90 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.8)] border border-white/10 rounded-full py-2 px-6 md:px-8" 
+            : "w-full max-w-7xl bg-transparent py-4 px-6 md:px-12 rounded-none border-transparent shadow-none"
+        }`}>
+          <div className="flex justify-between items-center">
+            
+            {/* Logo */}
+            <a href="#hero" className="flex items-center gap-3 md:gap-4 group">
+              <div className={`relative overflow-hidden group-hover:scale-105 transition-all duration-300 drop-shadow-[0_0_15px_rgba(250,204,21,0.5)] ${isScrolled ? "w-12 h-12" : "w-16 h-16 md:w-20 md:h-20"}`}>
+                <Image src="/assets/makro_emblem_transparent.png" alt="Makro-Click Emblem" fill className="object-contain" priority />
+              </div>
+              <div className="flex flex-col">
+                <span className={`font-black tracking-tight uppercase text-white leading-none group-hover:text-yellow-500 transition-colors duration-300 ${isScrolled ? "text-xl md:text-2xl" : "text-2xl md:text-3xl"}`}>
+                  MAKRO<span className="text-yellow-500 group-hover:text-white transition-colors duration-300">-CLICK</span>
+                </span>
+              </div>
+            </a>
 
-          {/* Desktop Menu with Underline Animation */}
-          <nav className="hidden lg:flex items-center gap-10">
-            {["หน้าแรก", "บริการของเรา", "ผลงานล่าสุด", "รถที่ให้บริการ"].map((item, idx) => {
-              const href = ["#hero", "#services", "#portfolio", "#equipment"][idx];
-              return (
-                <a 
-                  key={item} 
-                  href={href} 
-                  className="relative text-[15px] font-medium text-slate-300 hover:text-white transition-colors duration-300 uppercase tracking-wide py-2 group"
-                >
-                  {item}
-                  {/* Underline Animation */}
-                  <span className="absolute left-0 bottom-0 w-full h-[2px] bg-yellow-500 scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100 rounded-full"></span>
-                </a>
-              );
-            })}
-          </nav>
+            {/* Desktop Menu with Underline Animation */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {["หน้าแรก", "บริการของเรา", "ผลงานล่าสุด", "รถที่ให้บริการ"].map((item, idx) => {
+                const href = ["#hero", "#services", "#portfolio", "#equipment"][idx];
+                return (
+                  <a 
+                    key={item} 
+                    href={href} 
+                    className={`relative font-medium hover:text-white transition-colors duration-300 uppercase tracking-wide py-2 group ${isScrolled ? "text-sm text-slate-300" : "text-[15px] text-slate-200"}`}
+                  >
+                    {item}
+                    {/* Underline Animation */}
+                    <span className="absolute left-0 bottom-0 w-full h-[2px] bg-yellow-500 scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100 rounded-full"></span>
+                  </a>
+                );
+              })}
+            </nav>
 
-          {/* Mobile Menu Toggle */}
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden text-white p-2 hover:text-yellow-500 transition-colors">
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+            {/* Mobile Menu Toggle */}
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden text-white p-2 hover:text-yellow-500 transition-colors">
+              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
 
-        </div>
-      </header>
+          </div>
+        </header>
+      </div>
 
       {/* 2. Hero Section */}
       <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -135,8 +139,12 @@ export default function Page() {
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-12 items-center mt-20">
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, ease: cinematicEase }}>
-            <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 border border-yellow-500/30 text-yellow-500 text-sm font-semibold rounded-full bg-slate-950/60 backdrop-blur-sm shadow-[0_0_15px_rgba(250,204,21,0.15)]">
-              <span className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span> รับเหมาพื้นที่ กรุงเทพฯ และ ปริมณฑล
+            <div className="mb-8 inline-flex items-center gap-3 px-5 py-2 border border-yellow-500/50 text-yellow-400 text-sm md:text-base font-bold tracking-wide rounded-full bg-yellow-500/10 backdrop-blur-md shadow-[0_0_20px_rgba(250,204,21,0.2)]">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+              </span>
+              รับเหมาพื้นที่ กรุงเทพฯ และ ปริมณฑล
             </div>
             
             <div className="relative mb-6">
