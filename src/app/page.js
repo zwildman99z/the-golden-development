@@ -80,13 +80,8 @@ export default function Page() {
       }`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           <a href="#hero" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-yellow-500 flex items-center justify-center text-slate-950 shadow-md transform skew-x-[-10deg]">
-              <Truck size={22} strokeWidth={2.5} className="transform skew-x-[10deg]" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif font-black text-2xl tracking-tighter uppercase text-white">
-                MAKRO<span className="text-yellow-500">-CLICK</span>
-              </span>
+            <div className="relative h-12 w-48 transition-transform duration-300 group-hover:scale-105">
+              <Image src="/logo.png" alt="Makro-Click Logo" fill className="object-contain object-left" priority />
             </div>
           </a>
 
