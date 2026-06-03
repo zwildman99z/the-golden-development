@@ -88,11 +88,11 @@ export default function Page() {
           
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-4 group">
-            <div className="w-14 h-14 md:w-16 md:h-16 relative overflow-hidden group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_15px_rgba(250,204,21,0.5)]">
+            <div className="w-16 h-16 md:w-20 md:h-20 relative overflow-hidden group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_15px_rgba(250,204,21,0.5)]">
               <Image src="/assets/makro_emblem_transparent.png" alt="Makro-Click Emblem" fill className="object-contain" priority />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif font-black text-xl md:text-2xl tracking-tight uppercase text-white leading-none group-hover:text-yellow-500 transition-colors duration-300">
+              <span className="font-black text-2xl md:text-3xl tracking-tight uppercase text-white leading-none group-hover:text-yellow-500 transition-colors duration-300">
                 MAKRO<span className="text-yellow-500 group-hover:text-white transition-colors duration-300">-CLICK</span>
               </span>
             </div>
@@ -135,14 +135,18 @@ export default function Page() {
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-12 items-center mt-20">
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, ease: cinematicEase }}>
-            <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 border border-yellow-500/30 text-yellow-500 text-sm font-semibold rounded-full bg-slate-950/60 backdrop-blur-sm">
+            <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 border border-yellow-500/30 text-yellow-500 text-sm font-semibold rounded-full bg-slate-950/60 backdrop-blur-sm shadow-[0_0_15px_rgba(250,204,21,0.15)]">
               <span className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span> รับเหมาพื้นที่ กรุงเทพฯ และ ปริมณฑล
             </div>
             
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] text-white mb-6 tracking-tight drop-shadow-lg">
-              บริการให้เช่ารถ<span className="text-yellow-500">แม็คโคร</span> <br/>
-              และรถดัมพ์ <span className="text-yellow-500">ราคาเป็นกันเอง</span>
-            </h1>
+            <div className="relative mb-6">
+              {/* Subtle glowing orb behind text */}
+              <div className="absolute -inset-4 bg-yellow-500/20 blur-[80px] rounded-full opacity-50 pointer-events-none hidden md:block"></div>
+              <h1 className="relative text-5xl md:text-6xl lg:text-[5rem] font-black leading-[1.15] text-white tracking-tight drop-shadow-2xl">
+                บริการให้เช่ารถ<span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-600 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">แม็คโคร</span><br/>
+                และ<span className="text-yellow-400">รถดัมพ์</span> <br className="md:hidden" />ราคาเป็นกันเอง
+              </h1>
+            </div>
 
             <p className="text-lg text-slate-300 mb-10 max-w-xl leading-relaxed font-light">
               Makro-Click รับงานทุกขนาด งานเล็กขุดบ่อบ้านเดี่ยว งานใหญ่เคลียร์ริ่งโครงการ เราพร้อมลุย 
