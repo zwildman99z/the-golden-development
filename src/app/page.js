@@ -137,7 +137,7 @@ export default function Page() {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50"></div>
         </div>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-12 items-center mt-20">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-12 items-center mt-32 pt-10 pb-20">
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, ease: cinematicEase }}>
             <div className="mb-8 inline-flex items-center gap-3 px-5 py-2 border border-yellow-500/50 text-yellow-400 text-sm md:text-base font-bold tracking-wide rounded-full bg-yellow-500/10 backdrop-blur-md shadow-[0_0_20px_rgba(250,204,21,0.2)]">
               <span className="relative flex h-3 w-3">
@@ -160,9 +160,11 @@ export default function Page() {
                   และ<span className="font-black text-yellow-400 mx-2 md:mx-4">รถดัมพ์</span>
                 </span>
                 
-                <span className="font-sans font-medium text-3xl md:text-5xl lg:text-6xl text-yellow-300 mt-2 tracking-wide drop-shadow-lg">
-                  ราคาเป็นกันเอง
-                </span>
+                <div className="mt-4 md:mt-6 self-start">
+                  <span className="font-['var(--font-pattaya)'] text-4xl md:text-6xl lg:text-7xl text-yellow-300 font-normal tracking-wider drop-shadow-[0_4px_10px_rgba(250,204,21,0.3)] inline-block -rotate-2 bg-slate-900/50 backdrop-blur-md px-6 py-2 rounded-2xl border border-yellow-500/30">
+                    ราคาเป็นกันเอง
+                  </span>
+                </div>
               </h1>
             </div>
 
