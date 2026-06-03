@@ -1,10 +1,10 @@
-import { Prompt } from "next/font/google";
+import { Kanit } from "next/font/google";
 import "./globals.css";
 
-const promptFont = Prompt({
+const kanitFont = Kanit({
   subsets: ["thai", "latin"],
   variable: "--font-sans-thai",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="th"
-      className={`${promptFont.variable} scroll-smooth`}
+      className={`${kanitFont.variable} scroll-smooth`}
     >
       <body className="font-sans antialiased text-slate-900 bg-slate-950">
         {children}

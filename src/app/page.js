@@ -89,7 +89,7 @@ export default function Page() {
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-4 group">
             <div className="w-14 h-14 md:w-16 md:h-16 relative overflow-hidden group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_15px_rgba(250,204,21,0.5)]">
-              <Image src="/assets/makro_emblem.png" alt="Makro-Click Emblem" fill className="object-contain" priority />
+              <Image src="/assets/makro_emblem_transparent.png" alt="Makro-Click Emblem" fill className="object-contain" priority />
             </div>
             <div className="flex flex-col">
               <span className="font-serif font-black text-xl md:text-2xl tracking-tight uppercase text-white leading-none group-hover:text-yellow-500 transition-colors duration-300">
@@ -436,7 +436,7 @@ export default function Page() {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 relative overflow-hidden drop-shadow-[0_0_12px_rgba(250,204,21,0.5)]">
-                  <Image src="/assets/makro_emblem.png" alt="Makro-Click Emblem" fill className="object-contain" />
+                  <Image src="/assets/makro_emblem_transparent.png" alt="Makro-Click Emblem" fill className="object-contain" />
                 </div>
                 <div className="flex flex-col">
                   <span className="font-serif font-black text-xl tracking-tight uppercase text-white leading-none">
