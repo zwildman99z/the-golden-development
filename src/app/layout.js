@@ -1,4 +1,4 @@
-import { Kanit, Pattaya, Pridi } from "next/font/google";
+import { Kanit, Pattaya, Chonburi } from "next/font/google";
 import "./globals.css";
 
 const kanitFont = Kanit({
@@ -13,11 +13,12 @@ const pattayaFont = Pattaya({
   weight: ["400"],
 });
 
-const pridiFont = Pridi({
+const pridiFont = Chonburi({
   subsets: ["thai", "latin"],
   variable: "--font-pridi",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400"],
 });
+
 
 export const metadata = {
   title: "Makro-Click | ให้เช่ารถแม็คโคร รถดัมพ์ กรุงเทพฯ ปริมณฑล",
