@@ -78,13 +78,13 @@ export default function Page() {
   };
 
   return (
-    <div className="relative min-h-screen text-slate-800 font-sans selection:bg-amber-500 selection:text-slate-950 overflow-hidden bg-slate-50">
+    <div className="relative min-h-screen text-slate-50 font-sans selection:bg-yellow-500 selection:text-slate-950 overflow-hidden bg-slate-950">
       
       {/* 1. Floating Capsule Header */}
       <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none mt-0 sm:mt-4 transition-all duration-500">
         <header className={`pointer-events-auto transition-all duration-500 ease-in-out ${
           isScrolled 
-            ? "w-[95%] max-w-5xl bg-white/90 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.8)] border border-slate-200 rounded-full py-2 px-6 md:px-8" 
+            ? "w-[95%] max-w-5xl bg-slate-950/90 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.8)] border border-white/10 rounded-full py-2 px-6 md:px-8" 
             : "w-full max-w-7xl bg-transparent py-4 px-6 md:px-12 rounded-none border-transparent shadow-none"
         }`}>
           <div className="flex justify-between items-center">
@@ -95,8 +95,8 @@ export default function Page() {
                 <Image src="/assets/makro_emblem_transparent.png" alt="Makro-Click Emblem" fill className="object-contain" priority />
               </div>
               <div className="flex flex-col">
-                <span className={`font-black tracking-tight uppercase text-slate-900 leading-none group-hover:text-amber-500 transition-colors duration-300 ${isScrolled ? "text-xl md:text-2xl" : "text-2xl md:text-3xl"}`}>
-                  MAKRO<span className="text-amber-500 group-hover:text-slate-900 transition-colors duration-300">-CLICK</span>
+                <span className={`font-black tracking-tight uppercase text-white leading-none group-hover:text-yellow-500 transition-colors duration-300 ${isScrolled ? "text-xl md:text-2xl" : "text-2xl md:text-3xl"}`}>
+                  MAKRO<span className="text-yellow-500 group-hover:text-white transition-colors duration-300">-CLICK</span>
                 </span>
               </div>
             </a>
@@ -109,18 +109,18 @@ export default function Page() {
                   <a 
                     key={item} 
                     href={href} 
-                    className={`relative font-medium hover:text-slate-900 transition-colors duration-300 uppercase tracking-wide py-2 group ${isScrolled ? "text-sm text-slate-500" : "text-[15px] text-slate-200"}`}
+                    className={`relative font-medium hover:text-white transition-colors duration-300 uppercase tracking-wide py-2 group ${isScrolled ? "text-sm text-slate-300" : "text-[15px] text-slate-200"}`}
                   >
                     {item}
                     {/* Underline Animation */}
-                    <span className="absolute left-0 bottom-0 w-full h-[2px] bg-amber-500 scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100 rounded-full"></span>
+                    <span className="absolute left-0 bottom-0 w-full h-[2px] bg-yellow-500 scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100 rounded-full"></span>
                   </a>
                 );
               })}
             </nav>
 
             {/* Mobile Menu Toggle */}
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden text-slate-900 p-2 hover:text-amber-500 transition-colors">
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden text-white p-2 hover:text-yellow-500 transition-colors">
               {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
 
@@ -133,57 +133,57 @@ export default function Page() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image src={heroBg} alt="Heavy Machinery Excavator Working" fill className="object-cover opacity-50 mix-blend-luminosity grayscale-[20%]" priority />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/80 to-slate-50/20"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-slate-50/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50"></div>
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-12 items-center mt-32 pt-10 pb-20">
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, ease: cinematicEase }}>
-            <div className="mb-8 inline-flex items-center gap-3 px-5 py-2 border border-amber-400/50 text-amber-600 text-sm md:text-base font-bold tracking-wide rounded-full bg-amber-500/10 backdrop-blur-md shadow-[0_0_20px_rgba(250,204,21,0.2)]">
+            <div className="mb-8 inline-flex items-center gap-3 px-5 py-2 border border-yellow-500/50 text-yellow-400 text-sm md:text-base font-bold tracking-wide rounded-full bg-yellow-500/10 backdrop-blur-md shadow-[0_0_20px_rgba(250,204,21,0.2)]">
               <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
               </span>
               รับเหมาพื้นที่ กรุงเทพฯ และ ปริมณฑล
             </div>
             
             <div className="relative mb-6">
               {/* Subtle glowing orb behind text */}
-              <div className="absolute -inset-4 bg-amber-500/20 blur-[80px] rounded-full opacity-50 pointer-events-none hidden md:block"></div>
+              <div className="absolute -inset-4 bg-yellow-500/20 blur-[80px] rounded-full opacity-50 pointer-events-none hidden md:block"></div>
               
-              <h1 className="relative text-slate-900 drop-shadow-2xl flex flex-col gap-2 md:gap-4">
+              <h1 className="relative text-white drop-shadow-2xl flex flex-col gap-2 md:gap-4">
                 <span className="text-4xl md:text-5xl lg:text-7xl font-sans font-bold tracking-tight leading-[1.1]">
-                  บริการให้เช่ารถ<span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 drop-shadow-md ml-2 md:ml-4">แม็คโคร</span>
+                  บริการให้เช่ารถ<span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-600 drop-shadow-md ml-2 md:ml-4">แม็คโคร</span>
                 </span>
                 
                 <span className="text-4xl md:text-5xl lg:text-7xl font-sans font-bold tracking-tight leading-[1.1]">
-                  และ<span className="font-black text-amber-600 mx-2 md:mx-4">รถดัมพ์</span>
+                  และ<span className="font-black text-yellow-400 mx-2 md:mx-4">รถดัมพ์</span>
                 </span>
                 
                 <div className="mt-4 md:mt-6 self-start">
-                  <span className="inline-flex items-center font-sans font-bold text-2xl md:text-4xl lg:text-5xl text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 px-6 py-2 md:px-8 md:py-3 rounded-xl shadow-[0_4px_20px_rgba(250,204,21,0.4)] tracking-tight">
+                  <span className="inline-flex items-center font-sans font-bold text-2xl md:text-4xl lg:text-5xl text-slate-950 bg-gradient-to-r from-yellow-400 to-yellow-500 px-6 py-2 md:px-8 md:py-3 rounded-xl shadow-[0_4px_20px_rgba(250,204,21,0.4)] tracking-tight">
                     ราคาเป็นกันเอง
                   </span>
                 </div>
               </h1>
             </div>
 
-            <p className="text-lg text-slate-500 mb-10 max-w-xl leading-relaxed font-light">
+            <p className="text-lg text-slate-300 mb-10 max-w-xl leading-relaxed font-light">
               Makro-Click รับงานทุกขนาด งานเล็กขุดบ่อบ้านเดี่ยว งานใหญ่เคลียร์ริ่งโครงการ เราพร้อมลุย 
               คุยง่าย ทำงานไว คนขับมีประสบการณ์และระมัดระวังทรัพย์สิน ยินดีประเมินหน้างานฟรี!
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <a href="#contact" className="bg-amber-500 hover:bg-amber-400 active:scale-95 text-slate-950 font-bold px-8 py-4 rounded-full transition-all flex items-center gap-2 shadow-lg group">
+              <a href="#contact" className="bg-yellow-500 hover:bg-yellow-400 active:scale-95 text-slate-950 font-bold px-8 py-4 rounded-full transition-all flex items-center gap-2 shadow-lg group">
                 <span className="flex items-center gap-2">ประเมินราคาฟรี <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /></span>
               </a>
               <div className="flex items-center gap-3 ml-2">
                 <div className="flex -space-x-3">
-                  <div className="w-10 h-10 rounded-full border-2 border-slate-950 bg-slate-800 flex items-center justify-center"><ThumbsUp size={16} className="text-amber-500"/></div>
-                  <div className="w-10 h-10 rounded-full border-2 border-slate-950 bg-slate-800 flex items-center justify-center"><Check size={16} className="text-amber-500"/></div>
+                  <div className="w-10 h-10 rounded-full border-2 border-slate-950 bg-slate-800 flex items-center justify-center"><ThumbsUp size={16} className="text-yellow-500"/></div>
+                  <div className="w-10 h-10 rounded-full border-2 border-slate-950 bg-slate-800 flex items-center justify-center"><Check size={16} className="text-yellow-500"/></div>
                 </div>
-                <div className="text-xs text-slate-600">
-                  <span className="text-slate-900 font-medium block">รับประกัน</span> ความพึงพอใจ
+                <div className="text-xs text-slate-400">
+                  <span className="text-white font-medium block">รับประกัน</span> ความพึงพอใจ
                 </div>
               </div>
             </div>
@@ -192,7 +192,7 @@ export default function Page() {
 
         {/* Floating Scroll Indicator */}
         <motion.div 
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-900/60 cursor-pointer hidden md:flex"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60 cursor-pointer hidden md:flex"
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
           onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}
@@ -200,7 +200,7 @@ export default function Page() {
           <span className="text-[10px] uppercase tracking-[0.2em] font-medium">Scroll Down</span>
           <div className="w-5 h-8 border-2 border-white/30 rounded-full flex justify-center pt-1.5">
             <motion.div 
-              className="w-1 h-2 bg-amber-500 rounded-full"
+              className="w-1 h-2 bg-yellow-500 rounded-full"
               animate={{ y: [0, 12, 0], opacity: [1, 0, 1] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
             />
@@ -209,30 +209,30 @@ export default function Page() {
       </section>
 
       {/* 3. About / Why Choose Us */}
-      <section id="services" className="py-24 relative bg-white border-y border-slate-200">
+      <section id="services" className="py-24 relative bg-slate-900 border-y border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             
             {/* Image */}
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-2xl">
+            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
               <Image src={aboutImg} alt="Construction Site with Excavator" fill className="object-cover" />
-              <div className="absolute inset-0 bg-slate-50/10 mix-blend-multiply"></div>
-              <div className="absolute bottom-6 left-6 right-6 bg-slate-50/80 backdrop-blur-md rounded-2xl border border-slate-200 p-6 flex items-center justify-between">
+              <div className="absolute inset-0 bg-slate-950/10 mix-blend-multiply"></div>
+              <div className="absolute bottom-6 left-6 right-6 bg-slate-950/80 backdrop-blur-md rounded-2xl border border-white/10 p-6 flex items-center justify-between">
                 <div>
-                  <p className="text-amber-500 font-bold text-xl">บริการทุกระดับ</p>
-                  <p className="text-sm text-slate-500 mt-1">ประทับใจแน่นอน</p>
+                  <p className="text-yellow-500 font-bold text-xl">บริการทุกระดับ</p>
+                  <p className="text-sm text-slate-300 mt-1">ประทับใจแน่นอน</p>
                 </div>
-                <HardHat size={32} strokeWidth={1.5} className="text-amber-500" />
+                <HardHat size={32} strokeWidth={1.5} className="text-yellow-500" />
               </div>
             </motion.div>
 
             {/* Content */}
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="flex flex-col gap-6">
-              <span className="text-amber-500 text-sm font-semibold tracking-wide">ทำไมลูกค้าถึงเลือกเรา</span>
-              <h2 className="font-sans text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-                งานเล็ก งานใหญ่ <br/><span className="text-amber-500">เราใส่ใจเท่ากัน</span>
+              <span className="text-yellow-500 text-sm font-semibold tracking-wide">ทำไมลูกค้าถึงเลือกเรา</span>
+              <h2 className="font-sans text-4xl md:text-5xl font-bold text-white leading-tight">
+                งานเล็ก งานใหญ่ <br/><span className="text-yellow-500">เราใส่ใจเท่ากัน</span>
               </h2>
-              <p className="text-slate-600 leading-relaxed text-lg mb-4 font-light">
+              <p className="text-slate-400 leading-relaxed text-lg mb-4 font-light">
                 ไม่ต้องกลัวว่าจะจ้างยาก Makro-Click พร้อมให้บริการลูกค้ารายย่อยและผู้รับเหมาทุกท่าน ด้วยความเป็นกันเองและซื่อสัตย์ในวิชาชีพ
               </p>
 
@@ -244,12 +244,12 @@ export default function Page() {
                   { icon: CheckCircle, title: "ราคาเป็นมิตร", desc: "ตกลงราคาชัดเจนก่อนเริ่มงาน ไม่มีบวกเพิ่มจุกจิก" }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 items-start">
-                    <div className="p-3 rounded-xl bg-slate-800 border border-slate-700 text-amber-500 mt-1">
+                    <div className="p-3 rounded-xl bg-slate-800 border border-slate-700 text-yellow-500 mt-1">
                       <item.icon size={24} strokeWidth={1.5} />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-slate-900 mb-2 text-lg">{item.title}</h4>
-                      <p className="text-sm text-slate-600 leading-relaxed font-light">{item.desc}</p>
+                      <h4 className="font-semibold text-white mb-2 text-lg">{item.title}</h4>
+                      <p className="text-sm text-slate-400 leading-relaxed font-light">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -260,13 +260,13 @@ export default function Page() {
       </section>
 
       {/* 4. Portfolio (Recent Projects) */}
-      <section id="portfolio" className="py-24 relative bg-white border-y border-slate-200">
+      <section id="portfolio" className="py-24 relative bg-slate-900 border-y border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           <div className="text-center mb-16">
-            <span className="text-amber-500 text-sm font-semibold tracking-wide block mb-4">ผลงานที่ผ่านมา</span>
-            <h2 className="font-sans text-4xl md:text-5xl font-bold text-slate-900 mb-4">ผลงานล่าสุด<span className="text-amber-500">ของเรา</span></h2>
-            <p className="text-slate-600 max-w-2xl mx-auto font-light text-lg">ตัวอย่างงานจริงที่ได้รับความไว้วางใจจากผู้รับเหมาและเจ้าของบ้าน</p>
+            <span className="text-yellow-500 text-sm font-semibold tracking-wide block mb-4">ผลงานที่ผ่านมา</span>
+            <h2 className="font-sans text-4xl md:text-5xl font-bold text-white mb-4">ผลงานล่าสุด<span className="text-yellow-500">ของเรา</span></h2>
+            <p className="text-slate-400 max-w-2xl mx-auto font-light text-lg">ตัวอย่างงานจริงที่ได้รับความไว้วางใจจากผู้รับเหมาและเจ้าของบ้าน</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -281,23 +281,23 @@ export default function Page() {
                 }} 
                 whileHover={{ y: -8 }}
                 key={i} 
-                className="group relative bg-slate-50 border border-slate-800 rounded-3xl overflow-hidden hover:border-amber-400/50 hover:shadow-[0_10px_30px_rgba(250,204,21,0.1)] transition-all duration-500 h-[22rem] cursor-pointer"
+                className="group relative bg-slate-950 border border-slate-800 rounded-3xl overflow-hidden hover:border-yellow-500/50 hover:shadow-[0_10px_30px_rgba(250,204,21,0.1)] transition-all duration-500 h-[22rem] cursor-pointer"
               >
                 <div className="absolute inset-0">
                   <Image src={item.img} alt={item.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-50/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-300"></div>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
-                  <div className="w-12 h-1 bg-amber-500 mb-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100"></div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                  <p className="text-slate-500 font-light text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 leading-relaxed">{item.desc}</p>
+                  <div className="w-12 h-1 bg-yellow-500 mb-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100"></div>
+                  <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-slate-300 font-light text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 leading-relaxed">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
           </div>
           
           <div className="mt-16 text-center">
-            <a href="#contact" className="inline-flex items-center gap-2 bg-slate-800 hover:bg-amber-500 hover:text-slate-950 active:scale-95 text-slate-900 font-semibold rounded-full px-8 py-4 transition-all duration-300 shadow-md">
+            <a href="#contact" className="inline-flex items-center gap-2 bg-slate-800 hover:bg-yellow-500 hover:text-slate-950 active:scale-95 text-white font-semibold rounded-full px-8 py-4 transition-all duration-300 shadow-md">
               ปรึกษางานของคุณ ฟรี <ArrowUpRight size={18} />
             </a>
           </div>
@@ -305,13 +305,13 @@ export default function Page() {
       </section>
 
       {/* 5. Equipment List (Friendly Image Cards) */}
-      <section id="equipment" className="py-24 relative bg-slate-50">
+      <section id="equipment" className="py-24 relative bg-slate-950">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           <div className="text-center mb-16">
-            <span className="text-amber-500 text-sm font-semibold tracking-wide block mb-4">บริการเครื่องจักรของเรา</span>
-            <h2 className="font-sans text-4xl md:text-5xl font-bold text-slate-900 mb-4">เลือกเครื่องจักรที่<span className="text-amber-500">เหมาะกับงานคุณ</span></h2>
-            <p className="text-slate-600 max-w-2xl mx-auto font-light text-lg">มีให้เช่าทั้งแบบรายวันและรายเดือน (มีราคาพิเศษ) พร้อมคนขับใจดี ทำงานเก่ง</p>
+            <span className="text-yellow-500 text-sm font-semibold tracking-wide block mb-4">บริการเครื่องจักรของเรา</span>
+            <h2 className="font-sans text-4xl md:text-5xl font-bold text-white mb-4">เลือกเครื่องจักรที่<span className="text-yellow-500">เหมาะกับงานคุณ</span></h2>
+            <p className="text-slate-400 max-w-2xl mx-auto font-light text-lg">มีให้เช่าทั้งแบบรายวันและรายเดือน (มีราคาพิเศษ) พร้อมคนขับใจดี ทำงานเก่ง</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-10">
@@ -324,25 +324,25 @@ export default function Page() {
                 whileHover={{ y: -8 }}
                 whileTap={{ scale: 0.98 }}
                 key={i} 
-                className="group relative bg-white border border-slate-800 rounded-3xl overflow-hidden flex flex-col hover:border-amber-400/50 hover:shadow-[0_10px_30px_rgba(250,204,21,0.1)] transition-all duration-300"
+                className="group relative bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden flex flex-col hover:border-yellow-500/50 hover:shadow-[0_10px_30px_rgba(250,204,21,0.1)] transition-all duration-300"
               >
                 <div className="relative h-64 overflow-hidden bg-slate-800">
                   <Image src={equip.img} alt={equip.name} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-90"></div>
                 </div>
                 <div className="p-8 md:p-10 flex-grow flex flex-col">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3 tracking-wide">{equip.name}</h3>
-                  <p className="text-slate-600 font-light leading-relaxed mb-6 flex-grow text-sm md:text-base">{equip.desc}</p>
+                  <h3 className="text-2xl font-bold text-white mb-3 tracking-wide">{equip.name}</h3>
+                  <p className="text-slate-400 font-light leading-relaxed mb-6 flex-grow text-sm md:text-base">{equip.desc}</p>
                   
                   <div className="space-y-3 mb-8">
                     {equip.specs.map((spec, idx) => (
-                      <div key={idx} className="flex items-center gap-3 text-sm text-slate-500 font-light">
-                        <Check size={16} className="text-amber-500" /> {spec}
+                      <div key={idx} className="flex items-center gap-3 text-sm text-slate-300 font-light">
+                        <Check size={16} className="text-yellow-500" /> {spec}
                       </div>
                     ))}
                   </div>
 
-                  <a href="#contact" className="w-full text-center bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-900 font-semibold rounded-full py-4 transition-all duration-300 shadow-md">
+                  <a href="#contact" className="w-full text-center bg-slate-800 hover:bg-yellow-500 hover:text-slate-950 text-white font-semibold rounded-full py-4 transition-all duration-300 shadow-md">
                     ติดต่อสอบถามราคาคันนี้
                   </a>
                 </div>
@@ -353,38 +353,38 @@ export default function Page() {
       </section>
 
       {/* 5. Contact / Booking Form */}
-      <section id="contact" className="py-24 relative bg-white border-t border-slate-800">
+      <section id="contact" className="py-24 relative bg-slate-900 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             
             {/* Info */}
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="sticky top-32">
-              <span className="text-amber-500 text-sm font-semibold tracking-wide block mb-4">ติดต่อเราง่ายๆ</span>
-              <h2 className="font-sans text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                ให้เราช่วยประเมินราคา <br/><span className="text-amber-500">ให้คุณฟรี!</span>
+              <span className="text-yellow-500 text-sm font-semibold tracking-wide block mb-4">ติดต่อเราง่ายๆ</span>
+              <h2 className="font-sans text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                ให้เราช่วยประเมินราคา <br/><span className="text-yellow-500">ให้คุณฟรี!</span>
               </h2>
-              <p className="text-slate-600 leading-relaxed mb-10 max-w-md font-light text-lg">
+              <p className="text-slate-400 leading-relaxed mb-10 max-w-md font-light text-lg">
                 ไม่ต้องเกรงใจครับ ไม่เช่าไม่เป็นไร ทิ้งเบอร์และรายละเอียดงานไว้ให้เราช่วยแนะนำรถที่เหมาะสมและประหยัดงบที่สุดให้ได้ครับ
               </p>
 
               <div className="flex flex-col gap-6 p-8 border border-slate-800 bg-slate-800/30 rounded-3xl">
                 <div className="flex items-center gap-5">
-                  <div className="w-14 h-14 rounded-full bg-slate-50 border border-amber-400/30 flex items-center justify-center text-amber-500">
+                  <div className="w-14 h-14 rounded-full bg-slate-950 border border-yellow-500/30 flex items-center justify-center text-yellow-500">
                     <Phone size={24} />
                   </div>
                   <div>
-                    <p className="text-sm text-slate-600 font-light mb-1">โทรปรึกษาด่วน</p>
-                    <p className="font-bold text-slate-900 text-xl">09X-XXX-XXXX</p>
+                    <p className="text-sm text-slate-400 font-light mb-1">โทรปรึกษาด่วน</p>
+                    <p className="font-bold text-white text-xl">09X-XXX-XXXX</p>
                   </div>
                 </div>
                 <div className="w-full h-px bg-slate-700/50"></div>
                 <div className="flex items-center gap-5">
-                  <div className="w-14 h-14 rounded-full bg-slate-50 border border-amber-400/30 flex items-center justify-center text-amber-500">
+                  <div className="w-14 h-14 rounded-full bg-slate-950 border border-yellow-500/30 flex items-center justify-center text-yellow-500">
                     <MapPin size={24} />
                   </div>
                   <div>
-                    <p className="text-sm text-slate-600 font-light mb-1">พื้นที่ให้บริการ</p>
-                    <p className="font-medium text-slate-900 text-lg">กรุงเทพมหานคร และ ปริมณฑล</p>
+                    <p className="text-sm text-slate-400 font-light mb-1">พื้นที่ให้บริการ</p>
+                    <p className="font-medium text-white text-lg">กรุงเทพมหานคร และ ปริมณฑล</p>
                   </div>
                 </div>
               </div>
@@ -392,15 +392,15 @@ export default function Page() {
 
             {/* Form */}
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}>
-              <div className="bg-slate-50 border border-slate-800 p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+              <div className="bg-slate-950 border border-slate-800 p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
                 
                 {contactSuccess ? (
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-16">
                     <div className="w-20 h-20 bg-green-500/20 border border-green-500/30 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
                       <CheckCircle size={40} strokeWidth={1.5} />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3">ได้รับข้อมูลเรียบร้อยครับ</h3>
-                    <p className="text-slate-600 font-light leading-relaxed">ทีมงาน Makro-Click จะรีบติดต่อกลับไปให้คำปรึกษาและแจ้งราคาโดยเร็วที่สุดครับ ขอบพระคุณที่ไว้วางใจครับ</p>
+                    <h3 className="text-2xl font-bold text-white mb-3">ได้รับข้อมูลเรียบร้อยครับ</h3>
+                    <p className="text-slate-400 font-light leading-relaxed">ทีมงาน Makro-Click จะรีบติดต่อกลับไปให้คำปรึกษาและแจ้งราคาโดยเร็วที่สุดครับ ขอบพระคุณที่ไว้วางใจครับ</p>
                   </motion.div>
                 ) : (
                   <form name="equipment-rental" method="POST" data-netlify="true" onSubmit={handleContactSubmit} className="flex flex-col gap-6">
@@ -408,17 +408,17 @@ export default function Page() {
                     
                     <div className="grid grid-cols-2 gap-5">
                       <div>
-                        <label className="text-sm font-medium text-slate-500 mb-2 block">ชื่อผู้ติดต่อ</label>
+                        <label className="text-sm font-medium text-slate-300 mb-2 block">ชื่อผู้ติดต่อ</label>
                         <input type="text" name="name" value={contactForm.name} onChange={(e) => setContactForm({...contactForm, name: e.target.value})} required className="form-input" placeholder="ชื่อ หรือ นามสกุล" />
                       </div>
                       <div>
-                        <label className="text-sm font-medium text-slate-500 mb-2 block">เบอร์โทรศัพท์</label>
+                        <label className="text-sm font-medium text-slate-300 mb-2 block">เบอร์โทรศัพท์</label>
                         <input type="tel" name="phone" value={contactForm.phone} onChange={(e) => setContactForm({...contactForm, phone: e.target.value})} required className="form-input" placeholder="08X-XXX-XXXX" />
                       </div>
                     </div>
                     
                     <div>
-                      <label className="text-sm font-medium text-slate-500 mb-2 block">ประเภทเครื่องจักรที่สนใจ</label>
+                      <label className="text-sm font-medium text-slate-300 mb-2 block">ประเภทเครื่องจักรที่สนใจ</label>
                       <select name="machine-type" value={contactForm["machine-type"]} onChange={(e) => setContactForm({...contactForm, "machine-type": e.target.value})} required className="form-input cursor-pointer appearance-none">
                         <option value="" disabled>-- เลือกประเภทรถที่ให้เราช่วยประเมิน --</option>
                         <option value="รถแบคโฮ PC30 (เข้าซอยแคบ)">รถแบคโฮ PC30 (เข้าซอยแคบได้)</option>
@@ -430,16 +430,16 @@ export default function Page() {
                     </div>
 
                     <div>
-                      <label className="text-sm font-medium text-slate-500 mb-2 block">สถานที่หน้างาน (เขต/จังหวัด)</label>
+                      <label className="text-sm font-medium text-slate-300 mb-2 block">สถานที่หน้างาน (เขต/จังหวัด)</label>
                       <input type="text" name="job-location" value={contactForm["job-location"]} onChange={(e) => setContactForm({...contactForm, "job-location": e.target.value})} required className="form-input" placeholder="เช่น ซอยลาดพร้าว 71 กรุงเทพฯ" />
                     </div>
 
                     <div>
-                      <label className="text-sm font-medium text-slate-500 mb-2 flex items-center gap-2"><Calendar size={16}/> คาดว่าจะเริ่มงานวันที่</label>
+                      <label className="text-sm font-medium text-slate-300 mb-2 flex items-center gap-2"><Calendar size={16}/> คาดว่าจะเริ่มงานวันที่</label>
                       <input type="date" name="date-needed" value={contactForm["date-needed"]} onChange={(e) => setContactForm({...contactForm, "date-needed": e.target.value})} required className="form-input style-date" />
                     </div>
 
-                    <button type="submit" disabled={contactLoading} className="mt-6 w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2 shadow-lg text-lg">
+                    <button type="submit" disabled={contactLoading} className="mt-6 w-full bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-bold py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2 shadow-lg text-lg">
                       {contactLoading ? "กำลังส่งข้อมูล..." : "ส่งข้อมูลเพื่อประเมินราคาฟรี"}
                     </button>
                     <p className="text-center text-xs text-slate-500 font-light mt-1">
@@ -454,7 +454,7 @@ export default function Page() {
       </section>
 
       {/* Footer */}
-      <footer className="pt-20 pb-10 bg-slate-50 border-t border-slate-200">
+      <footer className="pt-20 pb-10 bg-slate-950 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <div>
@@ -463,40 +463,40 @@ export default function Page() {
                   <Image src="/assets/makro_emblem_transparent.png" alt="Makro-Click Emblem" fill className="object-contain" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-sans font-black text-xl tracking-tight uppercase text-slate-900 leading-none">
-                    MAKRO<span className="text-amber-500">-CLICK</span>
+                  <span className="font-sans font-black text-xl tracking-tight uppercase text-white leading-none">
+                    MAKRO<span className="text-yellow-500">-CLICK</span>
                   </span>
                 </div>
               </div>
-              <p className="text-slate-600 font-light leading-relaxed text-sm">
+              <p className="text-slate-400 font-light leading-relaxed text-sm">
                 Makro-Click ศูนย์รวมบริการให้เช่ารถแม็คโครและรถดัมพ์ รับงานทุกขนาด บริการประทับใจ ราคาเป็นกันเอง พร้อมดูแลรับใช้ผู้รับเหมาและลูกค้ารายย่อยทุกท่าน
               </p>
             </div>
             <div>
-              <h4 className="text-slate-900 font-bold mb-6 tracking-wide">บริการของเรา</h4>
-              <ul className="space-y-3 text-slate-600 text-sm font-light">
-                <li><a href="#equipment" className="hover:text-amber-500 transition-colors">เช่ารถแบคโฮ PC30 / PC120</a></li>
-                <li><a href="#equipment" className="hover:text-amber-500 transition-colors">เช่ารถดัมพ์ 6 ล้อ / 10 ล้อ</a></li>
-                <li><a href="#equipment" className="hover:text-amber-500 transition-colors">รับเหมาถมดิน เคลียร์ริ่งพื้นที่</a></li>
+              <h4 className="text-white font-bold mb-6 tracking-wide">บริการของเรา</h4>
+              <ul className="space-y-3 text-slate-400 text-sm font-light">
+                <li><a href="#equipment" className="hover:text-yellow-500 transition-colors">เช่ารถแบคโฮ PC30 / PC120</a></li>
+                <li><a href="#equipment" className="hover:text-yellow-500 transition-colors">เช่ารถดัมพ์ 6 ล้อ / 10 ล้อ</a></li>
+                <li><a href="#equipment" className="hover:text-yellow-500 transition-colors">รับเหมาถมดิน เคลียร์ริ่งพื้นที่</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-slate-900 font-bold mb-6 tracking-wide">ติดต่อเรา</h4>
-              <ul className="space-y-4 text-slate-600 text-sm font-light">
-                <li className="flex items-center gap-3"><Phone size={16} className="text-amber-500"/> 09X-XXX-XXXX</li>
-                <li className="flex items-center gap-3"><MapPin size={16} className="text-amber-500"/> ให้บริการในเขตกรุงเทพฯ และปริมณฑล</li>
-                <li className="flex items-center gap-3"><Clock size={16} className="text-amber-500"/> เปิดให้บริการทุกวัน 24 ชั่วโมง</li>
+              <h4 className="text-white font-bold mb-6 tracking-wide">ติดต่อเรา</h4>
+              <ul className="space-y-4 text-slate-400 text-sm font-light">
+                <li className="flex items-center gap-3"><Phone size={16} className="text-yellow-500"/> 09X-XXX-XXXX</li>
+                <li className="flex items-center gap-3"><MapPin size={16} className="text-yellow-500"/> ให้บริการในเขตกรุงเทพฯ และปริมณฑล</li>
+                <li className="flex items-center gap-3"><Clock size={16} className="text-yellow-500"/> เปิดให้บริการทุกวัน 24 ชั่วโมง</li>
               </ul>
             </div>
           </div>
-          <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-slate-500 font-light">
               &copy; {new Date().getFullYear()} MAKRO-CLICK. All rights reserved.
             </p>
             <div className="flex items-center gap-4 text-slate-500 text-xs">
-              <a href="#" className="hover:text-amber-500 transition-colors">นโยบายความเป็นส่วนตัว</a>
+              <a href="#" className="hover:text-yellow-500 transition-colors">นโยบายความเป็นส่วนตัว</a>
               <span>|</span>
-              <a href="#" className="hover:text-amber-500 transition-colors">ข้อตกลงและเงื่อนไข</a>
+              <a href="#" className="hover:text-yellow-500 transition-colors">ข้อตกลงและเงื่อนไข</a>
             </div>
           </div>
         </div>
