@@ -1,16 +1,10 @@
-import { Kanit, Pattaya } from "next/font/google";
+import { Kanit } from "next/font/google";
 import "./globals.css";
 
 const kanitFont = Kanit({
   subsets: ["thai", "latin"],
   variable: "--font-sans-thai",
   weight: ["300", "400", "500", "600", "700"],
-});
-
-const pattayaFont = Pattaya({
-  subsets: ["thai", "latin"],
-  variable: "--font-pattaya",
-  weight: ["400"],
 });
 
 export const metadata = {
@@ -29,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="th"
-      className={`${kanitFont.variable} ${pattayaFont.variable} scroll-smooth`}
+      className={`${kanitFont.variable} scroll-smooth`}
     >
       <body className="font-sans antialiased text-slate-900 bg-slate-950">
         {children}
