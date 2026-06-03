@@ -2,30 +2,15 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>THE GOLDEN DEVELOPMENT - Netlify Forms Detection</title>
+  <title>HEAVY-PRO - Netlify Forms Detection</title>
 </head>
 <body>
-  <!-- ฟอร์มติดต่อกลับสำหรับ Netlify Forms Bot -->
-  <form name="contact" data-netlify="true" hidden>
+  <!-- ฟอร์มลงทะเบียนสำหรับลูกค้า (เจ้าของรถแบคโฮ/รถดัมพ์) -->
+  <form name="lead-generation" data-netlify="true" hidden>
     <input type="text" name="name" />
-    <input type="text" name="email-tel" />
-    <textarea name="message"></textarea>
-  </form>
-
-  <!-- ฟอร์มสมัครงานสำหรับ Netlify Forms Bot -->
-  <form name="job-application" enctype="multipart/form-data" data-netlify="true" hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <input type="tel" name="tel" />
-    <select name="position">
-      <option value="credit-consultant">ที่ปรึกษาสินเชื่ออสังหาริมทรัพย์ (Credit Consultant)</option>
-      <option value="property-consultant">เจ้าหน้าที่บริหารงานเช่า/เช่าซื้อ (Property Consultant)</option>
-      <option value="defect-inspector">วิศวกร/ช่างตรวจรับมอบบ้านและคอนโด (Defect Inspector)</option>
-      <option value="marketing-admin">เจ้าหน้าที่ประสานงานการตลาดและแอดมิน (Marketing & Admin)</option>
-    </select>
-    <input type="number" name="experience" />
-    <input type="file" name="resume" accept=".pdf" />
-    <textarea name="message"></textarea>
+    <input type="text" name="phone" />
+    <input type="number" name="trucks" />
+    <input type="text" name="service-area" />
   </form>
 </body>
 </html>
