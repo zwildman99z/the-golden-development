@@ -143,16 +143,16 @@ export default function Page() {
               {/* Subtle glowing orb behind text */}
               <div className="absolute -inset-4 bg-yellow-500/20 blur-[80px] rounded-full opacity-50 pointer-events-none hidden md:block"></div>
               
-              <h1 className="relative text-white drop-shadow-2xl flex flex-col gap-1 md:gap-3">
-                <span className="text-4xl md:text-5xl lg:text-[4rem] font-serif font-bold tracking-tight leading-tight">
-                  บริการให้เช่ารถ<span className="font-sans font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-600 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] ml-2">แม็คโคร</span>
+              <h1 className="relative text-white drop-shadow-2xl flex flex-col gap-2 md:gap-4">
+                <span className="text-4xl md:text-5xl lg:text-7xl font-sans font-bold tracking-tight leading-[1.1]">
+                  บริการให้เช่ารถ<span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-600 drop-shadow-md ml-2 md:ml-4">แม็คโคร</span>
                 </span>
                 
-                <span className="text-4xl md:text-5xl lg:text-[4rem] font-serif font-bold tracking-tight leading-tight">
-                  และ<span className="font-sans font-black text-yellow-400 ml-2">รถดัมพ์</span>
+                <span className="text-4xl md:text-5xl lg:text-7xl font-sans font-bold tracking-tight leading-[1.1]">
+                  และ<span className="font-black text-yellow-400 mx-2 md:mx-4">รถดัมพ์</span>
                 </span>
                 
-                <span className="font-cursive text-yellow-300 font-normal text-[2.5rem] md:text-[4.5rem] lg:text-[5.5rem] mt-4 md:mt-2 -rotate-3 drop-shadow-[0_4px_4px_rgba(0,0,0,0.6)] self-start md:pl-16 leading-tight">
+                <span className="font-sans font-medium text-3xl md:text-5xl lg:text-6xl text-yellow-300 mt-2 tracking-wide drop-shadow-lg">
                   ราคาเป็นกันเอง
                 </span>
               </h1>
@@ -219,7 +219,7 @@ export default function Page() {
             {/* Content */}
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="flex flex-col gap-6">
               <span className="text-yellow-500 text-sm font-semibold tracking-wide">ทำไมลูกค้าถึงเลือกเรา</span>
-              <h2 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight">
+              <h2 className="font-sans text-4xl md:text-5xl font-bold text-white leading-tight">
                 งานเล็ก งานใหญ่ <br/><span className="text-yellow-500">เราใส่ใจเท่ากัน</span>
               </h2>
               <p className="text-slate-400 leading-relaxed text-lg mb-4 font-light">
@@ -255,7 +255,7 @@ export default function Page() {
           
           <div className="text-center mb-16">
             <span className="text-yellow-500 text-sm font-semibold tracking-wide block mb-4">ผลงานที่ผ่านมา</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">ผลงานล่าสุด<span className="text-yellow-500">ของเรา</span></h2>
+            <h2 className="font-sans text-4xl md:text-5xl font-bold text-white mb-4">ผลงานล่าสุด<span className="text-yellow-500">ของเรา</span></h2>
             <p className="text-slate-400 max-w-2xl mx-auto font-light text-lg">ตัวอย่างงานจริงที่ได้รับความไว้วางใจจากผู้รับเหมาและเจ้าของบ้าน</p>
           </div>
 
@@ -300,7 +300,7 @@ export default function Page() {
           
           <div className="text-center mb-16">
             <span className="text-yellow-500 text-sm font-semibold tracking-wide block mb-4">บริการเครื่องจักรของเรา</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">เลือกเครื่องจักรที่<span className="text-yellow-500">เหมาะกับงานคุณ</span></h2>
+            <h2 className="font-sans text-4xl md:text-5xl font-bold text-white mb-4">เลือกเครื่องจักรที่<span className="text-yellow-500">เหมาะกับงานคุณ</span></h2>
             <p className="text-slate-400 max-w-2xl mx-auto font-light text-lg">มีให้เช่าทั้งแบบรายวันและรายเดือน (มีราคาพิเศษ) พร้อมคนขับใจดี ทำงานเก่ง</p>
           </div>
 
@@ -350,7 +350,7 @@ export default function Page() {
             {/* Info */}
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="sticky top-32">
               <span className="text-yellow-500 text-sm font-semibold tracking-wide block mb-4">ติดต่อเราง่ายๆ</span>
-              <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+              <h2 className="font-sans text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 ให้เราช่วยประเมินราคา <br/><span className="text-yellow-500">ให้คุณฟรี!</span>
               </h2>
               <p className="text-slate-400 leading-relaxed mb-10 max-w-md font-light text-lg">
@@ -453,7 +453,7 @@ export default function Page() {
                   <Image src="/assets/makro_emblem_transparent.png" alt="Makro-Click Emblem" fill className="object-contain" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-serif font-black text-xl tracking-tight uppercase text-white leading-none">
+                  <span className="font-sans font-black text-xl tracking-tight uppercase text-white leading-none">
                     MAKRO<span className="text-yellow-500">-CLICK</span>
                   </span>
                 </div>
