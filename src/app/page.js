@@ -161,7 +161,7 @@ export default function Page() {
                 </span>
                 
                 <div className="mt-4 md:mt-6 self-start">
-                  <span className="font-['var(--font-pattaya)'] text-4xl md:text-6xl lg:text-7xl text-yellow-300 font-normal tracking-wider drop-shadow-[0_4px_10px_rgba(250,204,21,0.3)] inline-block -rotate-2 bg-slate-900/50 backdrop-blur-md px-6 py-2 rounded-2xl border border-yellow-500/30">
+                  <span className="font-['var(--font-pattaya)'] text-5xl md:text-7xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-500 font-normal drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] inline-block md:pl-8">
                     ราคาเป็นกันเอง
                   </span>
                 </div>
