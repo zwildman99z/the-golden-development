@@ -80,73 +80,49 @@ export default function Page() {
   return (
     <div className="relative min-h-screen text-slate-50 font-sans selection:bg-yellow-500 selection:text-slate-950 overflow-hidden bg-slate-950">
       
-      {/* 1. Top Banner (Traditional B2B Header) */}
-      <div className="bg-slate-900 border-b border-white/5 py-4 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4 relative z-40">
-        <div className="flex items-center gap-4">
-          <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-xl shadow-[0_0_15px_rgba(250,204,21,0.2)] flex items-center justify-center p-2 relative overflow-hidden border-2 border-yellow-500/50">
-            <Image src="/assets/makro_emblem.png" alt="Makro-Click Emblem" fill className="object-contain p-1" priority />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-serif font-black text-2xl md:text-3xl tracking-tight uppercase text-white leading-none">
-              MAKRO<span className="text-yellow-500">-CLICK</span>
-            </span>
-            <span className="text-[10px] md:text-xs text-slate-400 font-medium tracking-[0.2em] uppercase mt-1">
-              Heavy Machinery Rental
-            </span>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-6">
-          <div className="hidden lg:flex flex-col text-right">
-            <span className="text-xs text-slate-400 font-medium tracking-wider uppercase mb-1">จองคิวรถ / ประเมินราคาฟรี</span>
-            <span className="text-3xl font-black text-yellow-500 tracking-wider">09X-XXX-XXXX</span>
-          </div>
-          <a href="#contact" className="lg:hidden bg-yellow-500 text-slate-950 font-bold px-6 py-3 rounded-full flex items-center gap-2 active:scale-95 transition-transform shadow-lg">
-            <Phone size={18} /> โทรด่วน
+      {/* 1. Unified Header (Logo + Animated Menu) */}
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b ${
+        isScrolled ? "bg-slate-950/95 backdrop-blur-md shadow-xl border-white/10 py-3" : "bg-slate-900 border-white/5 py-4"
+      }`}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+          
+          {/* Logo */}
+          <a href="#hero" className="flex items-center gap-4 group">
+            <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-xl shadow-[0_0_15px_rgba(250,204,21,0.2)] flex items-center justify-center p-1 relative overflow-hidden border-2 border-yellow-500/50 group-hover:scale-105 transition-transform duration-300">
+              <Image src="/assets/makro_emblem.png" alt="Makro-Click Emblem" fill className="object-contain p-1" priority />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-serif font-black text-xl md:text-2xl tracking-tight uppercase text-white leading-none group-hover:text-yellow-500 transition-colors duration-300">
+                MAKRO<span className="text-yellow-500 group-hover:text-white transition-colors duration-300">-CLICK</span>
+              </span>
+            </div>
           </a>
+
+          {/* Desktop Menu with Underline Animation */}
+          <nav className="hidden lg:flex items-center gap-10">
+            {["หน้าแรก", "บริการของเรา", "ผลงานล่าสุด", "รถที่ให้บริการ"].map((item, idx) => {
+              const href = ["#hero", "#services", "#portfolio", "#equipment"][idx];
+              return (
+                <a 
+                  key={item} 
+                  href={href} 
+                  className="relative text-[15px] font-medium text-slate-300 hover:text-white transition-colors duration-300 uppercase tracking-wide py-2 group"
+                >
+                  {item}
+                  {/* Underline Animation */}
+                  <span className="absolute left-0 bottom-0 w-full h-[2px] bg-yellow-500 scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100 rounded-full"></span>
+                </a>
+              );
+            })}
+          </nav>
+
+          {/* Mobile Menu Toggle */}
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden text-white p-2 hover:text-yellow-500 transition-colors">
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+
         </div>
-      </div>
-
-      {/* 2. Navbar (Floating Capsule Menu) */}
-      <div className="sticky top-0 z-50 w-full flex justify-center pointer-events-none">
-        <nav className={`pointer-events-auto transition-all duration-500 ease-in-out ${
-          isScrolled 
-            ? "mt-2 md:mt-4 w-[95%] max-w-4xl bg-slate-900/95 backdrop-blur-md shadow-[0_10px_40px_rgba(0,0,0,0.5)] py-3 px-6 md:px-8 rounded-full border border-slate-700/50" 
-            : "w-full bg-slate-950/80 backdrop-blur-sm py-4 px-6 md:px-12 border-b border-white/5"
-        }`}>
-          <div className="max-w-7xl mx-auto flex justify-between items-center">
-            
-            {/* Mobile Menu Button */}
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden text-white p-2">
-              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-
-            {/* Logo on Scroll (Mobile) */}
-            <div className={`lg:hidden transition-all duration-300 ${isScrolled ? 'opacity-100' : 'opacity-0 hidden'}`}>
-               <span className="font-serif font-black text-lg text-white">MAKRO<span className="text-yellow-500">-CLICK</span></span>
-            </div>
-
-            {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center gap-10 w-full justify-center">
-              {["หน้าแรก", "บริการของเรา", "ผลงานล่าสุด", "รถที่ให้บริการ"].map((item, idx) => {
-                const href = ["#hero", "#services", "#portfolio", "#equipment"][idx];
-                return (
-                  <a key={item} href={href} className={`text-[14px] font-medium transition-colors duration-300 uppercase tracking-wide ${isScrolled ? 'text-slate-300 hover:text-yellow-500' : 'text-slate-400 hover:text-yellow-500'}`}>
-                    {item}
-                  </a>
-                );
-              })}
-            </div>
-            
-            {/* Right Action */}
-            <div className={`flex items-center transition-opacity duration-300`}>
-               <a href="#contact" className="bg-yellow-500 hover:bg-yellow-400 active:scale-95 text-slate-950 px-5 py-2 text-sm font-bold rounded-full transition-all flex items-center gap-2 shadow-lg">
-                <Phone size={14}/> {isScrolled ? 'ติดต่อ' : 'ประเมินราคาฟรี'}
-              </a>
-            </div>
-          </div>
-        </nav>
-      </div>
+      </header>
 
       {/* 2. Hero Section */}
       <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
